@@ -2,6 +2,9 @@
 screen inventory_button:
     textbutton "Show Inventory" action [ Show("inventory_screen"), Hide("inventory_button")] align (.95,.04)
 
+screen map_button:
+    textbutton "Show Map" action [ Show("map_screen"), Hide("map_button")] align (.95,.15)
+
 screen inventory_screen:
     modal True
 
@@ -23,3 +26,14 @@ screen inventory_screen:
 
 screen gui_tooltip (my_picture="", my_tt_xpos=58, my_tt_ypos=687):
     add my_picture xpos my_tt_xpos ypos my_tt_ypos
+
+screen map_screen:
+    modal True
+
+    hbox align (.95,.15) spacing 20:
+        textbutton "Close Map" action [ Show("map_button"), Hide("map_screen")]
+
+    add im.FactorScale("gui/HouseMap.png", 0.4)
+
+    #imagebutton idle im.FactorScale("gui/HouseMap.png", 0.4) hover im.FactorScale("gui/HouseMap.png", 0.4) xpos .95 ypos .65 action Function(print "Hovered")
+

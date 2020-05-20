@@ -1,6 +1,5 @@
 ﻿
 define e = Character("Hero")
-default i = 0
 
 image character1 = im.FactorScale("images/character.jpg", 0.5)
 image scene1 = im.FactorScale(im.Grayscale("images/interrogation_room_background.jpg"), 1.3)
@@ -23,6 +22,7 @@ label start:
 
     scene scene1 with dissolve
     show screen inventory_button
+    show screen map_button
 
     # # play music "audio/ES_Pyramid.mp3"
     show character1 at left
@@ -54,6 +54,5 @@ label start:
             e "Yes"
         elif isFriendly(npc1) == False:
             e "No"
-
 
     return

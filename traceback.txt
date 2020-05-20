@@ -1,26 +1,44 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
-While running game code:
-  File "game/script.rpy", line 9, in script
-    python:
-  File "game/script.rpy", line 11, in <module>
-    npc1 = NPC("Friendly", 80, True, image="images/character.jpg")
-TypeError: __init__() got multiple values for keyword argument 'image'
+After initialization, but before game start.
+  File "game/myScreens.rpy", line 30, in prepare_screen
+    screen map_screen:
+  File "game/myScreens.rpy", line 30, in prepare
+    screen map_screen:
+  File "game/myScreens.rpy", line 38, in prepare
+    imagebutton idle im.FactorScale("gui/HouseMap.png", 0.4) hover im.FactorScale("gui/HouseMap.png", 0.4) xpos .95 ypos .65 action Function(print "Hovered")
+  File "game/myScreens.rpy", line 38, in prepare
+    imagebutton idle im.FactorScale("gui/HouseMap.png", 0.4) hover im.FactorScale("gui/HouseMap.png", 0.4) xpos .95 ypos .65 action Function(print "Hovered")
+SyntaxError: invalid syntax (myScreens.rpy, line 38)
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "game/script.rpy", line 9, in script
-    python:
-  File "/Applications/renpy-7.3.5-sdk/renpy/ast.py", line 914, in execute
-    renpy.python.py_exec_bytecode(self.code.bytecode, self.hide, store=self.store)
-  File "/Applications/renpy-7.3.5-sdk/renpy/python.py", line 2028, in py_exec_bytecode
-    exec bytecode in globals, locals
-  File "game/script.rpy", line 11, in <module>
-    npc1 = NPC("Friendly", 80, True, image="images/character.jpg")
-TypeError: __init__() got multiple values for keyword argument 'image'
+  File "/Applications/renpy-7.3.5-sdk/renpy/bootstrap.py", line 316, in bootstrap
+    renpy.main.main()
+  File "/Applications/renpy-7.3.5-sdk/renpy/main.py", line 578, in main
+    run(restart)
+  File "/Applications/renpy-7.3.5-sdk/renpy/main.py", line 94, in run
+    renpy.display.screen.prepare_screens()
+  File "/Applications/renpy-7.3.5-sdk/renpy/display/screen.py", line 931, in prepare_screens
+    s.ast.prepare_screen()
+  File "game/myScreens.rpy", line 30, in prepare_screen
+    screen map_screen:
+  File "game/myScreens.rpy", line 30, in prepare
+    screen map_screen:
+  File "game/myScreens.rpy", line 38, in prepare
+    imagebutton idle im.FactorScale("gui/HouseMap.png", 0.4) hover im.FactorScale("gui/HouseMap.png", 0.4) xpos .95 ypos .65 action Function(print "Hovered")
+  File "game/myScreens.rpy", line 38, in prepare
+    imagebutton idle im.FactorScale("gui/HouseMap.png", 0.4) hover im.FactorScale("gui/HouseMap.png", 0.4) xpos .95 ypos .65 action Function(print "Hovered")
+  File "/Applications/renpy-7.3.5-sdk/renpy/pyanalysis.py", line 703, in ast_eval
+    return self.ast_eval_literal(expr)[0]
+  File "/Applications/renpy-7.3.5-sdk/renpy/pyanalysis.py", line 687, in ast_eval_literal
+    expr = py_compile(expr, 'eval', ast_node=True)
+  File "/Applications/renpy-7.3.5-sdk/renpy/python.py", line 692, in py_compile
+    raise e
+SyntaxError: invalid syntax (myScreens.rpy, line 38)
 
 Darwin-19.4.0-x86_64-i386-64bit
 Ren'Py 7.3.5.606
 Demo 1.0
-Wed May 20 22:50:32 2020
+Thu May 21 00:39:46 2020
