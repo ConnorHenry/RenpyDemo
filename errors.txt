@@ -1,0 +1,10 @@
+﻿I'm sorry, but errors were detected in your script. Please correct the
+errors listed below, and try again.
+
+
+File "game/myScreens.rpy", line 13: u'show' is not a keyword argument or valid child for the screen statement.
+    show inventory.itemNumber
+        ^
+
+Ren'Py Version: Ren'Py 7.3.5.606
+Tue May 19 23:41:46 2020
