@@ -8,6 +8,7 @@ image scene1 = im.FactorScale(im.Grayscale("images/interrogation_room_background
 label start:
     python:
         player = Player("Derp", 100, 50)
+        npc1 = NPC("Friendly", 80, image="images/character.jpg")
         player.hp = 50
         player.mp = 10
         chocolate = Item("Chocolate", hp=40, image="gui/window_icon.png")
@@ -20,49 +21,39 @@ label start:
         inventory.add(chocolate)
         inventory.add(banana)
 
-    # $ inventory = Inventory()
-    # # show screen Inventory
-    #
     scene scene1 with dissolve
     show screen inventory_button
 
     # # play music "audio/ES_Pyramid.mp3"
     show character1 at left
-    # pause
-    # # $ y = renpy.input("Who am i?")
-    # # e "[coins]"
     pause
-    #
-    e "This is our first line."
-    #
-    # pause
-    #
-    # #e "[coins]"
-    #
-    # menu:
-    #     "Shoot him":
-    #         $ choice1 = "1"
-    #         jump option1
-    #     "Spare him":
-    #         $ choice1 = "2"
-    #         jump option2
-    #
-    # label option1:
-    #     $ killed = True
-    #     hide character
-    #     "You monster"
-    #     jump secondChoice
-    # label option2:
-    #     "You hero"
-    #     jump secondChoice
-    #
-    # label secondChoice:
-    #     if choice1 == "1":
-    #         "Bad Ending"
-    #     if choice1 == "2":
-    #         "Good Ending"
-    #
-    # pause
+    
+    e "Hellooo."
+    e "I am currently your friend"
+    e "My trust value to you is [npc1.trust]"
+   
+    menu:
+        "Do something suspicious":
+            $ npc1.handleTrust(-60)
+            jump option1
+        "Do something casual":
+            $ npc1.handleTrust(10)
+            jump option2
+
+    label option1:
+        "Hmmmm odd.."
+        jump nextScreen
+    label option2:
+        "Nothing unusual here.."
+        jump nextScreen
+
+    label nextScreen:
+        e "My trust value to you is [npc1.trust]"
+        e "Are we friends?"
+        if isFriendly(npc1) == True:
+            e "Yes"
+        elif isFriendly(npc1) == False:
+            e "No"
 
 
     return

@@ -1,39 +1,3 @@
-# init python:
-#     item = None
-#     class Item(store.object):
-#         def __init__(self, name, image="", cost=0):
-#             self.name = name
-#             self.image=image
-#             self.cost=cost
-#         def use(self):
-#             if self.hp>0: #healing item
-#                 player.hp = player.hp+self.hp
-#                 if player.hp > player.max_hp: # can't heal beyond max HP
-#                     player.hp = player.max_hp
-#                 inventory.drop(self) # consumable item - drop after use
-#             elif self.mp>0: #mp restore item
-#                 player.mp = player.mp+self.mp
-#                 if player.mp > player.max_mp: # can't increase MP beyond max MP
-#                     player.mp = player.max_mp
-#                 inventory.drop(self) # consumable item - drop after use
-#             else:
-#                 player.element=self.element #item to change elemental damage; we don't drop it, since it's not a consumable item
-#
-#     class Inventory(store.object):
-#         def __init__(self, money=10):
-#             self.money = money
-#             self.items = []
-#         def add(self, item): # a simple method that adds an item; we could also add conditions here (like check if there is space in the inventory)
-#             self.items.append(item)
-#         def drop(self, item):
-#             self.items.remove(item)
-#         def buy(self, item):
-#             if self.money >= item.cost:
-#                 self.items.append(item)
-#                 self.money -= item.cost
-
-    # inv_page = 0 # initial page of teh inventory screen
-
 init python:
     item = None
     class Player(object):
@@ -44,12 +8,27 @@ init python:
             self.max_mp=max_mp
             self.mp=max_mp
             self.element=element
-    player = Player("Derp", 100, 50)
+
+    class NPC(object):
+        def __init__(self, name, trust, image="", maxTrust=100):
+            self.name = name
+            self.trust = trust
+            self.image = image
+            self.maxTrust = maxTrust
+
+        def handleTrust(self, incomingTrust):
+            if self.trust + incomingTrust > 100:
+                self.trust = 100
+            elif self.trust + incomingTrust < 0:
+                self.trust = 0
+            else:
+                self.trust += incomingTrust
+
 
     class Item(object):
         def __init__(self, name, player=None, hp=0, mp=0, element="", image="", cost=0):
             self.name = name
-            self.player = player # which character can use this item?
+            self.player = player # which character can use this item?e
             self.hp = hp # does this item restore hp?
             self.mp = mp # does this item restore mp?
             self.element = element # does this item change elemental damage?
@@ -89,6 +68,12 @@ init python:
 
     def item_use():
         item.use()
+
+    def isFriendly(character):
+        if character.trust<30:
+            return False
+        elif character.trust>70:
+            return True
 
     #Tooltips:
     style.tips_top = Style(style.default)

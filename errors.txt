@@ -2,9 +2,7 @@
 errors listed below, and try again.
 
 
-File "game/myScreens.rpy", line 13: u'show' is not a keyword argument or valid child for the screen statement.
-    show inventory.itemNumber
-        ^
+File "game/script.rpy", line 11: non-keyword arg after keyword arg
 
 Ren'Py Version: Ren'Py 7.3.5.606
-Tue May 19 23:41:46 2020
+Wed May 20 22:44:23 2020

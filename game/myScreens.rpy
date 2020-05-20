@@ -10,7 +10,6 @@ screen inventory_screen:
     $ x = 515 # coordinates of the top left item position
     $ y = 25
     $ i = 0
-    text str(inventory.itemNumber)
 
     for item in inventory.items:
         $ pic = item.image
