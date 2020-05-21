@@ -1,8 +1,8 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/script.rpy", line 34, in script
-    e "I am currently your friend"
+  File "game/script.rpy", line 32, in script
+    e "Hellooo [player.name]."
   File "renpy/common/00action_control.rpy", line 126, in __call__
     renpy.show_screen(self.screen, *self.args, **self.kwargs)
 Exception: Screen bathroom_screen is not known.
@@ -11,8 +11,8 @@ Exception: Screen bathroom_screen is not known.
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "game/script.rpy", line 34, in script
-    e "I am currently your friend"
+  File "game/script.rpy", line 32, in script
+    e "Hellooo [player.name]."
   File "/Applications/renpy-7.3.5-sdk/renpy/ast.py", line 708, in execute
     renpy.exports.say(who, what, *args, **kwargs)
   File "/Applications/renpy-7.3.5-sdk/renpy/exports.py", line 1345, in say
@@ -61,4 +61,4 @@ Exception: Screen bathroom_screen is not known.
 Darwin-19.4.0-x86_64-i386-64bit
 Ren'Py 7.3.5.606
 Demo 1.0
-Thu May 21 16:10:23 2020
+Fri May 22 00:20:23 2020

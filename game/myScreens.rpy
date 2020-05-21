@@ -22,8 +22,6 @@ screen inventory_screen:
         $ pic = item.image
         $ my_tooltip = "tooltip_inventory_" + pic.replace("gui/inv_", "").replace(".png", "") # we use tooltips to describe what the item does.
         imagebutton idle pic hover pic xpos x ypos y action [Hide("gui_tooltip"), Show("inventory_button"), SetVariable("item", item), Hide("inventory_screen"), item_use] hovered Show("gui_tooltip", my_picture=my_tooltip, my_tt_ypos=693) unhovered [Hide("gui_tooltip")]
-        if player.element and (player.element==item.element): #indicate the selected gun
-            add "gui/selected.png" xpos x ypos y anchor(.5,.5)
     $ i += 1
     if len(inventory.items)>9:
         textbutton _("Next Page") action [SetVariable('inv_page', next_inv_page), Show("inventory_screen")] xpos .475 ypos .83
@@ -41,7 +39,7 @@ screen map_screen:
 
     imagemap:
         ground "images/house_map.png"
-        hotspot (36, 24, 522, 239) clicked [ Hide("map_screen"), Show("map_button"), Jump("office") ]
+        hotspot (36, 24, 522, 239) clicked [ Hide("map_screen"), Show("map_button"), Show("office_screen") ]
         hotspot (562, 25, 274, 143) clicked [ Show("bathroom_screen"), Hide("map_screen"), Show("map_button") ]
         hotspot (845, 24, 275, 412) clicked [ Show("living_screen"), Hide("map_screen"), Show("map_button") ]
         hotspot (841, 440, 280, 159) clicked [ Show("security_screen"), Hide("map_screen"), Show("map_button") ]
@@ -62,4 +60,12 @@ screen room_tooltip (my_picture="", my_tt_xpos=58, my_tt_ypos=687):
     text my_picture xpos my_tt_xpos ypos my_tt_ypos
 
 screen office_screen:
-    add "images/office_screen.jpg"
+    if office.locked == False:
+        add "images/office_screen.jpg"
+        text "This is the office"
+    elif office.locked == True and officeKey in inventory.items:
+        text "You unlocked the door"
+        add "images/office_screen.jpg"
+        #inventory.drop(officeKey)
+    else:
+        text "Locked"

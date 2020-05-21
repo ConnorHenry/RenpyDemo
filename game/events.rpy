@@ -1,13 +1,9 @@
 init python:
     item = None
     class Player(object):
-        def __init__(self, name, max_hp=0, max_mp=0, element=None):
-            self.name=name
-            self.max_hp=max_hp
-            self.hp=max_hp
-            self.max_mp=max_mp
-            self.mp=max_mp
-            self.element=element
+        def __init__(self, name, anxious):
+            self.name = name
+            self.anxious = anxious
 
     class NPC(object):
         def __init__(self, name, trust, image="", maxTrust=100):
@@ -26,27 +22,9 @@ init python:
 
 
     class Item(object):
-        def __init__(self, name, player=None, hp=0, mp=0, element="", image="", cost=0):
+        def __init__(self, name, image=""):
             self.name = name
-            self.player = player # which character can use this item?e
-            self.hp = hp # does this item restore hp?
-            self.mp = mp # does this item restore mp?
-            self.element = element # does this item change elemental damage?
-            self.image = image # image file to use for this item
-            self.cost = cost # how much does it cost in shops?
-        def use(self): #here we define what should happen when we use the item
-            if self.hp>0: #healing item
-                player.hp = player.hp+self.hp
-                if player.hp > player.max_hp: # can't heal beyond max HP
-                    player.hp = player.max_hp
-                inventory.drop(self) # consumable item - drop after use
-            elif self.mp>0: #mp restore item
-                player.mp = player.mp+self.mp
-                if player.mp > player.max_mp: # can't increase MP beyond max MP
-                    player.mp = player.max_mp
-                inventory.drop(self) # consumable item - drop after use
-            else:
-                player.element = self.element #item to change elemental damage; we don't drop it, since it's not a consumable item
+            self.image = image 
 
     class Inventory(store.object):
         def __init__(self, money=10, itemNumber=0, maxSpace=5):
@@ -65,6 +43,18 @@ init python:
             if self.money >= item.cost:
                 self.items.append(item)
                 self.money -= item.cost
+
+    class Room(object):
+        def __init__(self, name, locked, background=""):
+            self.name = name
+            self.locked = locked
+
+        def unlock(self):
+            self.locked = False
+
+        def open(self):
+            self.locked == False
+
 
     def item_use():
         item.use()
