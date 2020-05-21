@@ -4,6 +4,7 @@ define e = Character("Hero")
 image character1 = im.FactorScale("images/character.jpg", 0.5)
 image scene1 = "images/interrogation_room_background.jpg"
 image bedroomScene = "gui/bedroomBackground.jpg"
+image officeScene = "images/office_screen.jpg"
 
 label start:
     python:
@@ -24,7 +25,7 @@ label start:
     scene scene1 with dissolve
     show screen inventory_button
     show screen map_button
-    show screen cameraOptions
+    # show screen cameraOptions
 
     # # play music "audio/ES_Pyramid.mp3"
     show character1 at left
@@ -57,8 +58,8 @@ label start:
         elif isFriendly(npc1) == False:
             e "No"
         
-    label bedroom:
-        scene bedroomScene
-        "This is the bedroom"
+    label office:
+        scene officeScene
+        "This is the office"
 
     return

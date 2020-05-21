@@ -1,7 +1,7 @@
 screen cameraOptions:
     imagemap:
         ground "images/camera.png" align (.60,.99)
-        hotspot (501, 110, 68, 53) clicked Show("inventory_screen")
+        #hotspot (501, 110, 68, 53) clicked Show("inventory_screen")
 
 screen inventory_button:
     textbutton "Show Inventory" action [ Show("inventory_screen"), Hide("inventory_button")] align (.95,.04)
@@ -39,20 +39,27 @@ screen map_screen:
 
     #add im.FactorScale("gui/HouseMap.png", 0.4)
 
-    # imagemap:
-    #     ground "gui/HouseMap.png"
+    imagemap:
+        ground "images/house_map.png"
+        hotspot (36, 24, 522, 239) clicked [ Hide("map_screen"), Show("map_button"), Jump("office") ]
+        hotspot (562, 25, 274, 143) clicked [ Show("bathroom_screen"), Hide("map_screen"), Show("map_button") ]
+        hotspot (845, 24, 275, 412) clicked [ Show("living_screen"), Hide("map_screen"), Show("map_button") ]
+        hotspot (841, 440, 280, 159) clicked [ Show("security_screen"), Hide("map_screen"), Show("map_button") ]
+        hotspot (36, 269, 805, 330) clicked [ Show("main_screen"), Hide("map_screen"), Show("map_button") ]
 
-    imagebutton:
-        idle "gui/bedroom.png" 
-        hover "gui/bedroom_hovered.png" action Show("room_tooltip", my_picture="Bedroom") unhovered [Hide("room_tooltip")]
-        clicked Jump("bedroom")
+    # imagebutton:
+    #     idle "gui/bedroom.png" 
+    #     hover "gui/bedroom_hovered.png" action Show("room_tooltip", my_picture="Bedroom") unhovered [Hide("room_tooltip")]
+    #     clicked Jump("bedroom")
 
-    imagebutton:
-        align (.95,.15)
-        idle "gui/bedroom.png" 
-        hover "gui/bedroom_hovered.png" action Show("room_tooltip", my_picture="Bedroom") unhovered [Hide("room_tooltip")]
-        clicked Jump("bedroom")
+    # imagebutton:
+    #     align (.95,.15)
+    #     idle "gui/bedroom.png" 
+    #     hover "gui/bedroom_hovered.png" action Show("room_tooltip", my_picture="Bedroom") unhovered [Hide("room_tooltip")]
+    #     clicked Jump("bedroom")
 
 screen room_tooltip (my_picture="", my_tt_xpos=58, my_tt_ypos=687):
     text my_picture xpos my_tt_xpos ypos my_tt_ypos
 
+screen office_screen:
+    add "images/office_screen.jpg"

@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/myScreens.rpy", line 3: u'x' is not a keyword argument or valid child for the imagemap statement.
-    ground "images/camera.png" x 53
-                                ^
+File "game/myScreens.rpy", line 65: u'jump' is not a keyword argument or valid child for the screen statement.
+    jump office
+        ^
 
 Ren'Py Version: Ren'Py 7.3.5.606
-Thu May 21 14:11:22 2020
+Thu May 21 16:10:07 2020

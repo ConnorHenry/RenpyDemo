@@ -1,61 +1,64 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/script.rpy", line 37, in script
-    menu:
-  File "game/myScreens.rpy", line 1, in execute
-    screen cameraOptions:
-  File "game/myScreens.rpy", line 1, in execute
-    screen cameraOptions:
-  File "game/myScreens.rpy", line 2, in execute
-    imagemap:
-  File "game/myScreens.rpy", line 2, in keywords
-    imagemap:
-TypeError: __init__() takes at least 3 arguments (2 given)
+  File "game/script.rpy", line 34, in script
+    e "I am currently your friend"
+  File "renpy/common/00action_control.rpy", line 126, in __call__
+    renpy.show_screen(self.screen, *self.args, **self.kwargs)
+Exception: Screen bathroom_screen is not known.
+
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "game/script.rpy", line 37, in script
-    menu:
-  File "/Applications/renpy-7.3.5-sdk/renpy/ast.py", line 1628, in execute
-    choice = renpy.exports.menu(choices, self.set, args, kwargs, item_arguments)
-  File "/Applications/renpy-7.3.5-sdk/renpy/exports.py", line 990, in menu
-    rv = renpy.store.menu(new_items)
-  File "/Applications/renpy-7.3.5-sdk/renpy/exports.py", line 1226, in display_menu
-    rv = renpy.ui.interact(mouse='menu', type=type, roll_forward=roll_forward)
+  File "game/script.rpy", line 34, in script
+    e "I am currently your friend"
+  File "/Applications/renpy-7.3.5-sdk/renpy/ast.py", line 708, in execute
+    renpy.exports.say(who, what, *args, **kwargs)
+  File "/Applications/renpy-7.3.5-sdk/renpy/exports.py", line 1345, in say
+    who(what, *args, **kwargs)
+  File "/Applications/renpy-7.3.5-sdk/renpy/character.py", line 1142, in __call__
+    self.do_display(who, what, cb_args=self.cb_args, **display_args)
+  File "/Applications/renpy-7.3.5-sdk/renpy/character.py", line 842, in do_display
+    **display_args)
+  File "/Applications/renpy-7.3.5-sdk/renpy/character.py", line 591, in display_say
+    rv = renpy.ui.interact(mouse='say', type=type, roll_forward=roll_forward)
   File "/Applications/renpy-7.3.5-sdk/renpy/ui.py", line 297, in interact
     rv = renpy.game.interface.interact(roll_forward=roll_forward, **kwargs)
   File "/Applications/renpy-7.3.5-sdk/renpy/display/core.py", line 2702, in interact
     repeat, rv = self.interact_core(preloads=preloads, trans_pause=trans_pause, **kwargs)
-  File "/Applications/renpy-7.3.5-sdk/renpy/display/core.py", line 3094, in interact_core
-    root_widget.visit_all(lambda i : i.per_interact())
-  File "/Applications/renpy-7.3.5-sdk/renpy/display/core.py", line 541, in visit_all
-    d.visit_all(callback, seen)
-  File "/Applications/renpy-7.3.5-sdk/renpy/display/core.py", line 541, in visit_all
-    d.visit_all(callback, seen)
-  File "/Applications/renpy-7.3.5-sdk/renpy/display/core.py", line 541, in visit_all
-    d.visit_all(callback, seen)
-  File "/Applications/renpy-7.3.5-sdk/renpy/display/screen.py", line 430, in visit_all
-    callback(self)
-  File "/Applications/renpy-7.3.5-sdk/renpy/display/core.py", line 3094, in <lambda>
-    root_widget.visit_all(lambda i : i.per_interact())
-  File "/Applications/renpy-7.3.5-sdk/renpy/display/screen.py", line 440, in per_interact
-    self.update()
-  File "/Applications/renpy-7.3.5-sdk/renpy/display/screen.py", line 625, in update
-    self.screen.function(**self.scope)
-  File "game/myScreens.rpy", line 1, in execute
-    screen cameraOptions:
-  File "game/myScreens.rpy", line 1, in execute
-    screen cameraOptions:
-  File "game/myScreens.rpy", line 2, in execute
-    imagemap:
-  File "game/myScreens.rpy", line 2, in keywords
-    imagemap:
-  File "<screen language>", line 3, in <module>
-TypeError: __init__() takes at least 3 arguments (2 given)
+  File "/Applications/renpy-7.3.5-sdk/renpy/display/core.py", line 3518, in interact_core
+    rv = root_widget.event(ev, x, y, 0)
+  File "/Applications/renpy-7.3.5-sdk/renpy/display/layout.py", line 998, in event
+    rv = i.event(ev, x - xo, y - yo, cst)
+  File "/Applications/renpy-7.3.5-sdk/renpy/display/layout.py", line 998, in event
+    rv = i.event(ev, x - xo, y - yo, cst)
+  File "/Applications/renpy-7.3.5-sdk/renpy/display/layout.py", line 998, in event
+    rv = i.event(ev, x - xo, y - yo, cst)
+  File "/Applications/renpy-7.3.5-sdk/renpy/display/screen.py", line 714, in event
+    rv = self.child.event(ev, x, y, st)
+  File "/Applications/renpy-7.3.5-sdk/renpy/display/layout.py", line 998, in event
+    rv = i.event(ev, x - xo, y - yo, cst)
+  File "/Applications/renpy-7.3.5-sdk/renpy/display/layout.py", line 998, in event
+    rv = i.event(ev, x - xo, y - yo, cst)
+  File "/Applications/renpy-7.3.5-sdk/renpy/display/layout.py", line 998, in event
+    rv = i.event(ev, x - xo, y - yo, cst)
+  File "/Applications/renpy-7.3.5-sdk/renpy/display/behavior.py", line 962, in event
+    return handle_click(self.clicked)
+  File "/Applications/renpy-7.3.5-sdk/renpy/display/behavior.py", line 897, in handle_click
+    rv = run(action)
+  File "/Applications/renpy-7.3.5-sdk/renpy/display/behavior.py", line 313, in run
+    new_rv = run(i, *args, **kwargs)
+  File "/Applications/renpy-7.3.5-sdk/renpy/display/behavior.py", line 320, in run
+    return action(*args, **kwargs)
+  File "renpy/common/00action_control.rpy", line 126, in __call__
+    renpy.show_screen(self.screen, *self.args, **self.kwargs)
+  File "/Applications/renpy-7.3.5-sdk/renpy/display/screen.py", line 1107, in show_screen
+    raise Exception("Screen %s is not known.\n" % (name[0],))
+Exception: Screen bathroom_screen is not known.
+
 
 Darwin-19.4.0-x86_64-i386-64bit
 Ren'Py 7.3.5.606
 Demo 1.0
-Thu May 21 14:08:26 2020
+Thu May 21 16:10:23 2020
