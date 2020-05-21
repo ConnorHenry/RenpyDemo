@@ -1,44 +1,61 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
-After initialization, but before game start.
-  File "game/myScreens.rpy", line 30, in prepare_screen
-    screen map_screen:
-  File "game/myScreens.rpy", line 30, in prepare
-    screen map_screen:
-  File "game/myScreens.rpy", line 38, in prepare
-    imagebutton idle im.FactorScale("gui/HouseMap.png", 0.4) hover im.FactorScale("gui/HouseMap.png", 0.4) xpos .95 ypos .65 action Function(print "Hovered")
-  File "game/myScreens.rpy", line 38, in prepare
-    imagebutton idle im.FactorScale("gui/HouseMap.png", 0.4) hover im.FactorScale("gui/HouseMap.png", 0.4) xpos .95 ypos .65 action Function(print "Hovered")
-SyntaxError: invalid syntax (myScreens.rpy, line 38)
+While running game code:
+  File "game/script.rpy", line 37, in script
+    menu:
+  File "game/myScreens.rpy", line 1, in execute
+    screen cameraOptions:
+  File "game/myScreens.rpy", line 1, in execute
+    screen cameraOptions:
+  File "game/myScreens.rpy", line 2, in execute
+    imagemap:
+  File "game/myScreens.rpy", line 2, in keywords
+    imagemap:
+TypeError: __init__() takes at least 3 arguments (2 given)
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "/Applications/renpy-7.3.5-sdk/renpy/bootstrap.py", line 316, in bootstrap
-    renpy.main.main()
-  File "/Applications/renpy-7.3.5-sdk/renpy/main.py", line 578, in main
-    run(restart)
-  File "/Applications/renpy-7.3.5-sdk/renpy/main.py", line 94, in run
-    renpy.display.screen.prepare_screens()
-  File "/Applications/renpy-7.3.5-sdk/renpy/display/screen.py", line 931, in prepare_screens
-    s.ast.prepare_screen()
-  File "game/myScreens.rpy", line 30, in prepare_screen
-    screen map_screen:
-  File "game/myScreens.rpy", line 30, in prepare
-    screen map_screen:
-  File "game/myScreens.rpy", line 38, in prepare
-    imagebutton idle im.FactorScale("gui/HouseMap.png", 0.4) hover im.FactorScale("gui/HouseMap.png", 0.4) xpos .95 ypos .65 action Function(print "Hovered")
-  File "game/myScreens.rpy", line 38, in prepare
-    imagebutton idle im.FactorScale("gui/HouseMap.png", 0.4) hover im.FactorScale("gui/HouseMap.png", 0.4) xpos .95 ypos .65 action Function(print "Hovered")
-  File "/Applications/renpy-7.3.5-sdk/renpy/pyanalysis.py", line 703, in ast_eval
-    return self.ast_eval_literal(expr)[0]
-  File "/Applications/renpy-7.3.5-sdk/renpy/pyanalysis.py", line 687, in ast_eval_literal
-    expr = py_compile(expr, 'eval', ast_node=True)
-  File "/Applications/renpy-7.3.5-sdk/renpy/python.py", line 692, in py_compile
-    raise e
-SyntaxError: invalid syntax (myScreens.rpy, line 38)
+  File "game/script.rpy", line 37, in script
+    menu:
+  File "/Applications/renpy-7.3.5-sdk/renpy/ast.py", line 1628, in execute
+    choice = renpy.exports.menu(choices, self.set, args, kwargs, item_arguments)
+  File "/Applications/renpy-7.3.5-sdk/renpy/exports.py", line 990, in menu
+    rv = renpy.store.menu(new_items)
+  File "/Applications/renpy-7.3.5-sdk/renpy/exports.py", line 1226, in display_menu
+    rv = renpy.ui.interact(mouse='menu', type=type, roll_forward=roll_forward)
+  File "/Applications/renpy-7.3.5-sdk/renpy/ui.py", line 297, in interact
+    rv = renpy.game.interface.interact(roll_forward=roll_forward, **kwargs)
+  File "/Applications/renpy-7.3.5-sdk/renpy/display/core.py", line 2702, in interact
+    repeat, rv = self.interact_core(preloads=preloads, trans_pause=trans_pause, **kwargs)
+  File "/Applications/renpy-7.3.5-sdk/renpy/display/core.py", line 3094, in interact_core
+    root_widget.visit_all(lambda i : i.per_interact())
+  File "/Applications/renpy-7.3.5-sdk/renpy/display/core.py", line 541, in visit_all
+    d.visit_all(callback, seen)
+  File "/Applications/renpy-7.3.5-sdk/renpy/display/core.py", line 541, in visit_all
+    d.visit_all(callback, seen)
+  File "/Applications/renpy-7.3.5-sdk/renpy/display/core.py", line 541, in visit_all
+    d.visit_all(callback, seen)
+  File "/Applications/renpy-7.3.5-sdk/renpy/display/screen.py", line 430, in visit_all
+    callback(self)
+  File "/Applications/renpy-7.3.5-sdk/renpy/display/core.py", line 3094, in <lambda>
+    root_widget.visit_all(lambda i : i.per_interact())
+  File "/Applications/renpy-7.3.5-sdk/renpy/display/screen.py", line 440, in per_interact
+    self.update()
+  File "/Applications/renpy-7.3.5-sdk/renpy/display/screen.py", line 625, in update
+    self.screen.function(**self.scope)
+  File "game/myScreens.rpy", line 1, in execute
+    screen cameraOptions:
+  File "game/myScreens.rpy", line 1, in execute
+    screen cameraOptions:
+  File "game/myScreens.rpy", line 2, in execute
+    imagemap:
+  File "game/myScreens.rpy", line 2, in keywords
+    imagemap:
+  File "<screen language>", line 3, in <module>
+TypeError: __init__() takes at least 3 arguments (2 given)
 
 Darwin-19.4.0-x86_64-i386-64bit
 Ren'Py 7.3.5.606
 Demo 1.0
-Thu May 21 00:39:46 2020
+Thu May 21 14:08:26 2020

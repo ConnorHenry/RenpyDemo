@@ -1,3 +1,7 @@
+screen cameraOptions:
+    imagemap:
+        ground "images/camera.png" align (.60,.99)
+        hotspot (501, 110, 68, 53) clicked Show("inventory_screen")
 
 screen inventory_button:
     textbutton "Show Inventory" action [ Show("inventory_screen"), Hide("inventory_button")] align (.95,.04)
@@ -33,7 +37,22 @@ screen map_screen:
     hbox align (.95,.15) spacing 20:
         textbutton "Close Map" action [ Show("map_button"), Hide("map_screen")]
 
-    add im.FactorScale("gui/HouseMap.png", 0.4)
+    #add im.FactorScale("gui/HouseMap.png", 0.4)
 
-    #imagebutton idle im.FactorScale("gui/HouseMap.png", 0.4) hover im.FactorScale("gui/HouseMap.png", 0.4) xpos .95 ypos .65 action Function(print "Hovered")
+    # imagemap:
+    #     ground "gui/HouseMap.png"
+
+    imagebutton:
+        idle "gui/bedroom.png" 
+        hover "gui/bedroom_hovered.png" action Show("room_tooltip", my_picture="Bedroom") unhovered [Hide("room_tooltip")]
+        clicked Jump("bedroom")
+
+    imagebutton:
+        align (.95,.15)
+        idle "gui/bedroom.png" 
+        hover "gui/bedroom_hovered.png" action Show("room_tooltip", my_picture="Bedroom") unhovered [Hide("room_tooltip")]
+        clicked Jump("bedroom")
+
+screen room_tooltip (my_picture="", my_tt_xpos=58, my_tt_ypos=687):
+    text my_picture xpos my_tt_xpos ypos my_tt_ypos
 
