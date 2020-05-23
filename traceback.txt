@@ -1,30 +1,26 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/script.rpy", line 67, in script
-    $ word_effect("Appointment")
-  File "game/script.rpy", line 67, in <module>
-    $ word_effect("Appointment")
-  File "game/script.rpy", line 28, in word_effect
-    txt3 += "{size=-" + int(player.anxious) + "}" + letter + "{/size}"
-TypeError: coercing to Unicode: need string or buffer, int found
+  File "game/events.rpy", line 1, in script
+    init python:
+  File "game/events.rpy", line 5, in <module>
+    print(noteJson["age"])
+TypeError: string indices must be integers, not unicode
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "game/script.rpy", line 67, in script
-    $ word_effect("Appointment")
+  File "game/events.rpy", line 1, in script
+    init python:
   File "/Applications/renpy-7.3.5-sdk/renpy/ast.py", line 914, in execute
     renpy.python.py_exec_bytecode(self.code.bytecode, self.hide, store=self.store)
   File "/Applications/renpy-7.3.5-sdk/renpy/python.py", line 2028, in py_exec_bytecode
     exec bytecode in globals, locals
-  File "game/script.rpy", line 67, in <module>
-    $ word_effect("Appointment")
-  File "game/script.rpy", line 28, in word_effect
-    txt3 += "{size=-" + int(player.anxious) + "}" + letter + "{/size}"
-TypeError: coercing to Unicode: need string or buffer, int found
+  File "game/events.rpy", line 5, in <module>
+    print(noteJson["age"])
+TypeError: string indices must be integers, not unicode
 
 Darwin-19.4.0-x86_64-i386-64bit
 Ren'Py 7.3.5.606
-Demo 1.0
-Sat May 23 18:31:13 2020
+ 
+Sat May 23 22:50:13 2020

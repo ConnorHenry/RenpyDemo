@@ -1,5 +1,6 @@
 ﻿
-define e = Character("Hero")
+define hero = Character("Hero")
+define guard = Character("Guard")
 
 image character1 = im.FactorScale("images/character.jpg", 0.5)
 image scene1 = "images/interrogation_room_background.jpg"
@@ -36,7 +37,7 @@ image word_effect:
 
 label start:
     python:
-        player = Player("Derp", 0)
+        player = Player("Derp", 3)
         npc1 = NPC("Friendly", 80, image="images/character.jpg")
         officeKey = Item("officeKey", image="gui/key.jpg")
         inventory = Inventory()
@@ -52,18 +53,45 @@ label start:
 
     pause
 
+    guard "Where was it you studied?"
+
+    menu:
+        "University of Moscow":
+            jump moscow
+        "Coleraine Tech":
+            jump tech
+        "Harvard":
+            jump harvard
+
+    label moscow:
+        $ player.handleAnxious(+1)
+        guard "Oh really? You dont sound Russian?"
+        jump question2
+
+    label tech:
+        $ player.handleAnxious(-1)
+        guard "Oh yeah my brother got his Level 2 BTEC from there"
+        jump question2
+
+    label harvard:
+        $ player.handleAnxious(+1)
+        guard "You...?"
+        jump question2
+
+    label question2:
+        $ word_effect("time did")
+        guard "What {image=word_effect} you get here?"
+
+
     #$ povname = renpy.input("What is your name?")
     #$ player.name = povname.strip()
 
     #e "Hellooo [player.name]."
 
     # show officeKey.image
-
-    e "I am currently your friend"
-    e "My trust value to you is [npc1.trust]"
     
     $ word_effect("Appointment")
-    e "Hello, i need to make {image=word_effect}, can you help me?"
+    guard "Hello, i need to make {image=word_effect}, can you help me?"
    
     menu:
         "Do something suspicious":
@@ -74,26 +102,26 @@ label start:
             jump option2
     
     # e "{size=+10}Bigger{/size} {size=-10}Smaller{/size} {size=24}24 px{/size}."
-    e "Hello, i need to make {image=word_effect}, can you help me?"
+    guard "Hello, i need to make {image=word_effect}, can you help me?"
     # $ the_word = "Really?"
     # e "{image=word_effect}"
     # e "Hellooo."
 
     label option1:    
         $ word_effect("Odd...")
-        e "{image=word_effect}"
+        guard "{image=word_effect}"
         jump nextScreen
     label option2:
-        e "Nothing unusual here.."
+        guard "Nothing unusual here.."
         jump nextScreen
 
     label nextScreen:
-        e "My trust value to you is [npc1.trust]"
-        e "Are we friends?"
+        guard "My trust value to you is [npc1.trust]"
+        guard "Are we friends?"
         if isFriendly(npc1) == True:
-            e "Yes"
+            guard "Yes"
         elif isFriendly(npc1) == False:
-            e "No"
+            guard "No"
         
     label office:
         if office.locked == False:
@@ -101,8 +129,8 @@ label start:
             text "This is the office"
         elif office.locked == True and officeKey in inventory.items:
             $ inventory.drop(officeKey)
-            e "You unlocked the door"
+            guard "You unlocked the door"
         else:
-            e "Locked"
+            guard "Locked"
 
     return

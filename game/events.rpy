@@ -1,9 +1,32 @@
 init python:
+    import json
+    note =  '{ "name":"Their", "age":30, "city":"New York"}'
+    y = json.loads(x)
+    print(y["age"])
+
     item = None
     class Player(object):
-        def __init__(self, name, anxious):
+        def __init__(self, name, anxious, maxAnxious=10):
             self.name = name
             self.anxious = anxious
+
+        def handleAnxious(self, incomingAnxious):
+            if self.anxious + incomingAnxious > 10:
+                self.anxious = 10
+            elif self.anxious + incomingAnxious < 0:
+                self.anxious = 0
+            else:
+                self.anxious += incomingAnxious
+
+    class NoteBook(object):
+        def __init__(self, name, notes, newNote):
+            self.name = name
+            self.notes = []
+            self.newNote = newNote
+
+        def addNote():
+            notes.push(newNote)
+
 
     class NPC(object):
         def __init__(self, name, trust, image="", maxTrust=100):
@@ -52,9 +75,12 @@ init python:
         def unlock(self):
             self.locked = False
 
-        def open(self):
-            self.locked == False
-
+    class Question():
+        def __init__(self, id, question, possibleAnswers, correctAnswer):
+            self.id = id
+            self.question = question
+            self.possibleAnswers = possibleAnswers
+            self.correctAnswer = correctAnswer
 
     def item_use():
         item.use()
