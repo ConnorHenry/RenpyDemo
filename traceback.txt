@@ -1,64 +1,30 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/script.rpy", line 32, in script
-    e "Hellooo [player.name]."
-  File "renpy/common/00action_control.rpy", line 126, in __call__
-    renpy.show_screen(self.screen, *self.args, **self.kwargs)
-Exception: Screen bathroom_screen is not known.
-
+  File "game/script.rpy", line 67, in script
+    $ word_effect("Appointment")
+  File "game/script.rpy", line 67, in <module>
+    $ word_effect("Appointment")
+  File "game/script.rpy", line 28, in word_effect
+    txt3 += "{size=-" + int(player.anxious) + "}" + letter + "{/size}"
+TypeError: coercing to Unicode: need string or buffer, int found
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "game/script.rpy", line 32, in script
-    e "Hellooo [player.name]."
-  File "/Applications/renpy-7.3.5-sdk/renpy/ast.py", line 708, in execute
-    renpy.exports.say(who, what, *args, **kwargs)
-  File "/Applications/renpy-7.3.5-sdk/renpy/exports.py", line 1345, in say
-    who(what, *args, **kwargs)
-  File "/Applications/renpy-7.3.5-sdk/renpy/character.py", line 1142, in __call__
-    self.do_display(who, what, cb_args=self.cb_args, **display_args)
-  File "/Applications/renpy-7.3.5-sdk/renpy/character.py", line 842, in do_display
-    **display_args)
-  File "/Applications/renpy-7.3.5-sdk/renpy/character.py", line 591, in display_say
-    rv = renpy.ui.interact(mouse='say', type=type, roll_forward=roll_forward)
-  File "/Applications/renpy-7.3.5-sdk/renpy/ui.py", line 297, in interact
-    rv = renpy.game.interface.interact(roll_forward=roll_forward, **kwargs)
-  File "/Applications/renpy-7.3.5-sdk/renpy/display/core.py", line 2702, in interact
-    repeat, rv = self.interact_core(preloads=preloads, trans_pause=trans_pause, **kwargs)
-  File "/Applications/renpy-7.3.5-sdk/renpy/display/core.py", line 3518, in interact_core
-    rv = root_widget.event(ev, x, y, 0)
-  File "/Applications/renpy-7.3.5-sdk/renpy/display/layout.py", line 998, in event
-    rv = i.event(ev, x - xo, y - yo, cst)
-  File "/Applications/renpy-7.3.5-sdk/renpy/display/layout.py", line 998, in event
-    rv = i.event(ev, x - xo, y - yo, cst)
-  File "/Applications/renpy-7.3.5-sdk/renpy/display/layout.py", line 998, in event
-    rv = i.event(ev, x - xo, y - yo, cst)
-  File "/Applications/renpy-7.3.5-sdk/renpy/display/screen.py", line 714, in event
-    rv = self.child.event(ev, x, y, st)
-  File "/Applications/renpy-7.3.5-sdk/renpy/display/layout.py", line 998, in event
-    rv = i.event(ev, x - xo, y - yo, cst)
-  File "/Applications/renpy-7.3.5-sdk/renpy/display/layout.py", line 998, in event
-    rv = i.event(ev, x - xo, y - yo, cst)
-  File "/Applications/renpy-7.3.5-sdk/renpy/display/layout.py", line 998, in event
-    rv = i.event(ev, x - xo, y - yo, cst)
-  File "/Applications/renpy-7.3.5-sdk/renpy/display/behavior.py", line 962, in event
-    return handle_click(self.clicked)
-  File "/Applications/renpy-7.3.5-sdk/renpy/display/behavior.py", line 897, in handle_click
-    rv = run(action)
-  File "/Applications/renpy-7.3.5-sdk/renpy/display/behavior.py", line 313, in run
-    new_rv = run(i, *args, **kwargs)
-  File "/Applications/renpy-7.3.5-sdk/renpy/display/behavior.py", line 320, in run
-    return action(*args, **kwargs)
-  File "renpy/common/00action_control.rpy", line 126, in __call__
-    renpy.show_screen(self.screen, *self.args, **self.kwargs)
-  File "/Applications/renpy-7.3.5-sdk/renpy/display/screen.py", line 1107, in show_screen
-    raise Exception("Screen %s is not known.\n" % (name[0],))
-Exception: Screen bathroom_screen is not known.
-
+  File "game/script.rpy", line 67, in script
+    $ word_effect("Appointment")
+  File "/Applications/renpy-7.3.5-sdk/renpy/ast.py", line 914, in execute
+    renpy.python.py_exec_bytecode(self.code.bytecode, self.hide, store=self.store)
+  File "/Applications/renpy-7.3.5-sdk/renpy/python.py", line 2028, in py_exec_bytecode
+    exec bytecode in globals, locals
+  File "game/script.rpy", line 67, in <module>
+    $ word_effect("Appointment")
+  File "game/script.rpy", line 28, in word_effect
+    txt3 += "{size=-" + int(player.anxious) + "}" + letter + "{/size}"
+TypeError: coercing to Unicode: need string or buffer, int found
 
 Darwin-19.4.0-x86_64-i386-64bit
 Ren'Py 7.3.5.606
 Demo 1.0
-Fri May 22 00:20:23 2020
+Sat May 23 18:31:13 2020
