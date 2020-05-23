@@ -1,6 +1,6 @@
 init python:
     import json
-    note =  '{ "name":"Their", "age":30, "city":"New York"}'
+    x =  '{ "name":"John", "age":30, "city":"New York"}'
     y = json.loads(x)
     print(y["age"])
 

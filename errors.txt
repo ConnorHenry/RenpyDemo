@@ -2,10 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/events.rpy", line 3: invalid syntax
-    json.dumps(['foo', {'bar': ('baz', None, 1.0, 2)}])'["foo", {"bar": ["baz", null, 1.0, 2]}]'
-                                                                                                ^
-    
+File "game/script.rpy", line 56: ATL statement contains two expressions in a row; is one of them a misspelled property? If not, separate them with pass.
+    style top_padding 20 
+                      ^
 
 Ren'Py Version: Ren'Py 7.3.5.606
-Sat May 23 22:42:51 2020
+Sat May 23 23:41:07 2020

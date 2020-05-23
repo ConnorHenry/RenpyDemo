@@ -7,13 +7,21 @@ image scene1 = "images/interrogation_room_background.jpg"
 image bedroomScene = "gui/bedroomBackground.jpg"
 image officeScene = "images/office_screen.jpg"
 
+
+# Text Tags
+# alpha
+# 
+# 
+# 
+# 
+
 init python:
     
     txt1 = ""
     txt2 = ""
     txt3 = ""
     
-    def word_effect(txt):
+    def word_effect(txt, textTag):
         global txt1, txt2, txt3
         txt1 = txt
         txt2 = ""
@@ -23,15 +31,38 @@ init python:
             i += 1
             if i % 2 == 0:
                 txt2 += letter
-                txt3 += "{size=-" + str(player.anxious) + "}" + letter + "{/size}"
+                txt3 += "{"+textTag+"=-" + str(player.anxious) + "}" + letter + "{/"+textTag+"}"
             else:
-                txt2 += "{size=-" + str(player.anxious) + "}" + letter + "{/size}"
-                txt3 += letter
+                txt2 += "{"+textTag+"=-" + str(player.anxious) + "}" + letter + "{/"+textTag+"}"
+                txt3 += letter    
+                
+    def word_effect2(txt, textTag):
+        global txt4, txt5, txt6
+        txt4 = txt
+        txt5 = ""
+        txt6 = ""
+        i = 2
+        for letter in txt:
+            i += 1
+            if i % 2 == 0:
+                txt5 += letter
+                txt6 += "{"+textTag+"=-" + str(player.anxious) + "}" + letter + "{/"+textTag+"}"
+            else:
+                txt5 += "{"+textTag+"=-" + str(player.anxious) + "}" + letter + "{/"+textTag+"}"
+                txt6 += letter
 
 image word_effect:
     Text("[txt2]")
+    style top_padding 20 
     pause .2
     Text("[txt3]")
+    pause .2
+    repeat
+
+image word_effect2:
+    Text("[txt5]")
+    pause .2
+    Text("[txt6]")
     pause .2
     repeat
 
@@ -79,8 +110,9 @@ label start:
         jump question2
 
     label question2:
-        $ word_effect("time did")
-        guard "What {image=word_effect} you get here?"
+        $ word_effect("time did", "size")
+        $ word_effect2("get here", "i")
+        guard "What {image=word_effect} you {image=word_effect2}?"
 
 
     #$ povname = renpy.input("What is your name?")

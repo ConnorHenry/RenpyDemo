@@ -1,26 +1,65 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
-While running game code:
-  File "game/events.rpy", line 1, in script
-    init python:
-  File "game/events.rpy", line 5, in <module>
-    print(noteJson["age"])
-TypeError: string indices must be integers, not unicode
+Compiling ATL code at game/script.rpy:57
+  File "game/script.rpy", line 115, in script
+    # e "{image=word_effect}"
+NameError: name 'top_padding' is not defined
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "game/events.rpy", line 1, in script
-    init python:
-  File "/Applications/renpy-7.3.5-sdk/renpy/ast.py", line 914, in execute
-    renpy.python.py_exec_bytecode(self.code.bytecode, self.hide, store=self.store)
-  File "/Applications/renpy-7.3.5-sdk/renpy/python.py", line 2028, in py_exec_bytecode
-    exec bytecode in globals, locals
-  File "game/events.rpy", line 5, in <module>
-    print(noteJson["age"])
-TypeError: string indices must be integers, not unicode
+  File "game/script.rpy", line 115, in script
+    # e "{image=word_effect}"
+  File "/Applications/renpy-7.3.5-sdk/renpy/ast.py", line 708, in execute
+    renpy.exports.say(who, what, *args, **kwargs)
+  File "/Applications/renpy-7.3.5-sdk/renpy/exports.py", line 1345, in say
+    who(what, *args, **kwargs)
+  File "/Applications/renpy-7.3.5-sdk/renpy/character.py", line 1142, in __call__
+    self.do_display(who, what, cb_args=self.cb_args, **display_args)
+  File "/Applications/renpy-7.3.5-sdk/renpy/character.py", line 842, in do_display
+    **display_args)
+  File "/Applications/renpy-7.3.5-sdk/renpy/character.py", line 591, in display_say
+    rv = renpy.ui.interact(mouse='say', type=type, roll_forward=roll_forward)
+  File "/Applications/renpy-7.3.5-sdk/renpy/ui.py", line 297, in interact
+    rv = renpy.game.interface.interact(roll_forward=roll_forward, **kwargs)
+  File "/Applications/renpy-7.3.5-sdk/renpy/display/core.py", line 2702, in interact
+    repeat, rv = self.interact_core(preloads=preloads, trans_pause=trans_pause, **kwargs)
+  File "/Applications/renpy-7.3.5-sdk/renpy/display/core.py", line 3094, in interact_core
+    root_widget.visit_all(lambda i : i.per_interact())
+  File "/Applications/renpy-7.3.5-sdk/renpy/display/core.py", line 541, in visit_all
+    d.visit_all(callback, seen)
+  File "/Applications/renpy-7.3.5-sdk/renpy/display/core.py", line 541, in visit_all
+    d.visit_all(callback, seen)
+  File "/Applications/renpy-7.3.5-sdk/renpy/display/core.py", line 541, in visit_all
+    d.visit_all(callback, seen)
+  File "/Applications/renpy-7.3.5-sdk/renpy/display/screen.py", line 434, in visit_all
+    self.child.visit_all(callback, seen=None)
+  File "/Applications/renpy-7.3.5-sdk/renpy/display/core.py", line 541, in visit_all
+    d.visit_all(callback, seen)
+  File "/Applications/renpy-7.3.5-sdk/renpy/display/core.py", line 541, in visit_all
+    d.visit_all(callback, seen)
+  File "/Applications/renpy-7.3.5-sdk/renpy/display/core.py", line 541, in visit_all
+    d.visit_all(callback, seen)
+  File "/Applications/renpy-7.3.5-sdk/renpy/display/core.py", line 541, in visit_all
+    d.visit_all(callback, seen)
+  File "/Applications/renpy-7.3.5-sdk/renpy/display/core.py", line 541, in visit_all
+    d.visit_all(callback, seen)
+  File "/Applications/renpy-7.3.5-sdk/renpy/display/core.py", line 531, in visit_all
+    for d in self.visit():
+  File "/Applications/renpy-7.3.5-sdk/renpy/atl.py", line 582, in visit
+    block = self.compile()
+  File "/Applications/renpy-7.3.5-sdk/renpy/atl.py", line 489, in compile
+    block = self.atl.compile(self.context)
+  File "/Applications/renpy-7.3.5-sdk/renpy/atl.py", line 684, in compile
+    statements = [ i.compile(ctx) for i in self.statements ]
+  File "/Applications/renpy-7.3.5-sdk/renpy/atl.py", line 897, in compile
+    child = ctx.eval(expr)
+  File "/Applications/renpy-7.3.5-sdk/renpy/atl.py", line 246, in eval
+    return eval(expr, renpy.store.__dict__, self.context)  # @UndefinedVariable
+  File "<string>", line 1, in <module>
+NameError: name 'top_padding' is not defined
 
 Darwin-19.4.0-x86_64-i386-64bit
 Ren'Py 7.3.5.606
- 
-Sat May 23 22:50:13 2020
+Demo 1.0
+Sat May 23 23:34:54 2020
