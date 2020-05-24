@@ -9,6 +9,9 @@ screen inventory_button:
 screen map_button:
     textbutton "Show Map" action [ Show("map_screen"), Hide("map_button")] align (.95,.15)
 
+screen notebook_button:
+    textbutton "Show Notebook" action [ Show("notebook_screen"), Hide("notebook_button")] align (.95,.25)
+
 screen inventory_screen:
     modal True
 
@@ -66,6 +69,13 @@ screen office_screen:
     elif office.locked == True and officeKey in inventory.items:
         text "You unlocked the door"
         add "images/office_screen.jpg"
-        #inventory.drop(officeKey)
     else:
         text "Locked"
+
+screen notebook_screen:
+    modal True
+
+    hbox align (.95,.25) spacing 20:
+        textbutton "Close Notebook" action [ Show("notebook_button"), Hide("notebook_screen")]
+
+    

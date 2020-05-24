@@ -35,7 +35,7 @@ init python:
             else:
                 txt2 += "{"+textTag+"=-" + str(player.anxious) + "}" + letter + "{/"+textTag+"}"
                 txt3 += letter    
-                
+
     def word_effect2(txt, textTag):
         global txt4, txt5, txt6
         txt4 = txt
@@ -52,10 +52,9 @@ init python:
                 txt6 += letter
 
 image word_effect:
-    Text("[txt2]")
-    style top_padding 20 
+    ui.text("[txt2]")
     pause .2
-    Text("[txt3]")
+    ui.text("[txt3]")
     pause .2
     repeat
 
@@ -78,6 +77,7 @@ label start:
     scene scene1 with dissolve
     show screen inventory_button
     show screen map_button
+    show screen notebook_button
 
     # # play music "audio/ES_Pyramid.mp3"
     show character1 at left
@@ -122,7 +122,7 @@ label start:
 
     # show officeKey.image
     
-    $ word_effect("Appointment")
+    $ word_effect("Appointment", "size")
     guard "Hello, i need to make {image=word_effect}, can you help me?"
    
     menu:
@@ -135,12 +135,9 @@ label start:
     
     # e "{size=+10}Bigger{/size} {size=-10}Smaller{/size} {size=24}24 px{/size}."
     guard "Hello, i need to make {image=word_effect}, can you help me?"
-    # $ the_word = "Really?"
-    # e "{image=word_effect}"
-    # e "Hellooo."
 
     label option1:    
-        $ word_effect("Odd...")
+        $ word_effect("Odd...", "size")
         guard "{image=word_effect}"
         jump nextScreen
     label option2:

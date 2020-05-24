@@ -24,8 +24,8 @@ init python:
             self.notes = []
             self.newNote = newNote
 
-        def addNote():
-            notes.push(newNote)
+        def addNote(self, note): 
+            self.items.notes(note)
 
 
     class NPC(object):
@@ -55,7 +55,7 @@ init python:
             self.money = money
             self.items = []
             self.maxSpace = maxSpace
-        def add(self, item): # a simple method that adds an item; we could also add conditions here (like check if there is space in the inventory)
+        def add(self, item): 
             if self.itemNumber<self.maxSpace:
                 self.itemNumber+=1
                 self.items.append(item)
