@@ -1,26 +1,26 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/script.rpy", line 140, in script
-    $ word_effect("Odd...")
-  File "game/script.rpy", line 140, in <module>
-    $ word_effect("Odd...")
-TypeError: word_effect() takes exactly 2 arguments (1 given)
+  File "game/script.rpy", line 91, in script
+    $ timeout_label = question2
+  File "game/script.rpy", line 91, in <module>
+    $ timeout_label = question2
+NameError: name 'question2' is not defined
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "game/script.rpy", line 140, in script
-    $ word_effect("Odd...")
+  File "game/script.rpy", line 91, in script
+    $ timeout_label = question2
   File "/Applications/renpy-7.3.5-sdk/renpy/ast.py", line 914, in execute
     renpy.python.py_exec_bytecode(self.code.bytecode, self.hide, store=self.store)
   File "/Applications/renpy-7.3.5-sdk/renpy/python.py", line 2028, in py_exec_bytecode
     exec bytecode in globals, locals
-  File "game/script.rpy", line 140, in <module>
-    $ word_effect("Odd...")
-TypeError: word_effect() takes exactly 2 arguments (1 given)
+  File "game/script.rpy", line 91, in <module>
+    $ timeout_label = question2
+NameError: name 'question2' is not defined
 
 Darwin-19.4.0-x86_64-i386-64bit
 Ren'Py 7.3.5.606
 Demo 1.0
-Sun May 24 21:46:08 2020
+Mon May 25 09:20:19 2020

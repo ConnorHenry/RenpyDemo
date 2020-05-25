@@ -206,10 +206,17 @@ style input:
 
 screen choice(items):
     style_prefix "choice"
-
     vbox:
         for i in items:
-            textbutton i.caption action i.action
+            textbutton i.caption action [SetVariable("timeout", 10), SetVariable("timeout_label", None), i.action]
+    if timeout_label is not None:
+        bar: 
+            xalign 0.5
+            ypos 50
+            xsize 740
+            value AnimatedValue(old_value=1.0, value=0.0, range=1.0, delay=timeout)
+        timer timeout action [SetVariable("timeout", 10), SetVariable("timeout_label", None), Jump(timeout_label)]
+
 
 
 ## When this is true, menu captions will be spoken by the narrator. When false,

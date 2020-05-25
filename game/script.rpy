@@ -67,12 +67,14 @@ image word_effect2:
 
 label start:
     python:
-        player = Player("Derp", 3)
+        player = Player("Derp", 8)
         npc1 = NPC("Friendly", 80, image="images/character.jpg")
         officeKey = Item("officeKey", image="gui/key.jpg")
         inventory = Inventory()
         inventory.add(officeKey)
         office = Room("Office", True)
+
+        timeout = player.anxious
 
     scene scene1 with dissolve
     show screen inventory_button
@@ -86,6 +88,7 @@ label start:
 
     guard "Where was it you studied?"
 
+    $ timeout_label = "question2"
     menu:
         "University of Moscow":
             jump moscow
@@ -118,13 +121,7 @@ label start:
     #$ povname = renpy.input("What is your name?")
     #$ player.name = povname.strip()
 
-    #e "Hellooo [player.name]."
-
-    # show officeKey.image
-    
-    $ word_effect("Appointment", "size")
-    guard "Hello, i need to make {image=word_effect}, can you help me?"
-   
+    $ timeout_label = "nextScreen"   
     menu:
         "Do something suspicious":
             $ npc1.handleTrust(-60)
@@ -133,7 +130,6 @@ label start:
             $ npc1.handleTrust(10)
             jump option2
     
-    # e "{size=+10}Bigger{/size} {size=-10}Smaller{/size} {size=24}24 px{/size}."
     guard "Hello, i need to make {image=word_effect}, can you help me?"
 
     label option1:    
