@@ -11,7 +11,7 @@ image officeScene = "images/office_screen.jpg"
 # Text Tags
 # alpha
 # 
-# 
+#   
 # 
 # 
 
@@ -88,26 +88,29 @@ label start:
 
     "You walk up to the house."
     "There is a guard standing at the door, staring at you."
+    
+    guard "Here, do as you see fit"
+    
+    $ sshake = Shake((0.5, 1.0, 0.5, 1.0), 10.0, dist=15)
 
-    guard "What do you want?"
-
-    $ timeout_label = "question2"
+    $ timeout_label = "question2" 
+    show character1 at right
     menu:
-        "I'm hear to see Dimirti":
-            jump dimirti
-        "Get out of my way":
-            jump outOfWay
+        "moscow":
+            jump moscow
+        "tech":
+            jump tech
         "Harvard":
-            jump harvard
+            jump harvard    
 
     label moscow:
         $ player.handleAnxious(+1)
-        guard "Oh really? You dont sound Russian?"
+        guard "Oh really? You dont sound Russian?" with sshake
         jump question2
 
     label tech:
         $ player.handleAnxious(-1)
-        guard "Oh yeah my brother got his Level 2 BTEC from there"
+        guard "Oh yeah my brother got his Level 2 BTEC from there" with sshake
         jump question2
 
     label harvard:
@@ -135,7 +138,7 @@ label start:
     
     guard "Hello, i need to make {image=word_effect}, can you help me?"
 
-    label option1:    
+    label option1:
         $ word_effect("Odd...", "size")
         guard "{image=word_effect}"
         jump nextScreen
