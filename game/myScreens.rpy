@@ -72,10 +72,13 @@ screen office_screen:
     else:
         text "Locked"
 
-screen notebook_screen:
-    modal True
+# screen notebook_screen:
+#     modal True
 
-    hbox align (.95,.25) spacing 20:
-        textbutton "Close Notebook" action [ Show("notebook_button"), Hide("notebook_screen")]
+#     hbox align (.95,.25) spacing 20:
+#         textbutton "Close Notebook" action [ Show("notebook_button"), Hide("notebook_screen")]
 
-    
+#     text "Objectives:"
+#     text "Identify the Leader"
+#     text "Retrieve the microfilm"
+

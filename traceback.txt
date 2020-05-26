@@ -1,26 +1,74 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/script.rpy", line 91, in script
-    $ timeout_label = question2
-  File "game/script.rpy", line 91, in <module>
-    $ timeout_label = question2
-NameError: name 'question2' is not defined
+  File "game/script.rpy", line 87, in script
+    pause
+  File "game/script.rpy", line 87, in script
+    pause
+  File "renpy/common/000statements.rpy", line 416, in execute_pause
+    renpy.pause()
+  File "renpy/common/00action_control.rpy", line 126, in __call__
+    renpy.show_screen(self.screen, *self.args, **self.kwargs)
+Exception: Screen notebook_screen is not known.
+
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "game/script.rpy", line 91, in script
-    $ timeout_label = question2
-  File "/Applications/renpy-7.3.5-sdk/renpy/ast.py", line 914, in execute
-    renpy.python.py_exec_bytecode(self.code.bytecode, self.hide, store=self.store)
-  File "/Applications/renpy-7.3.5-sdk/renpy/python.py", line 2028, in py_exec_bytecode
-    exec bytecode in globals, locals
-  File "game/script.rpy", line 91, in <module>
-    $ timeout_label = question2
-NameError: name 'question2' is not defined
+  File "/Applications/renpy-7.3.5-sdk/renpy/bootstrap.py", line 316, in bootstrap
+    renpy.main.main()
+  File "/Applications/renpy-7.3.5-sdk/renpy/main.py", line 578, in main
+    run(restart)
+  File "/Applications/renpy-7.3.5-sdk/renpy/main.py", line 143, in run
+    renpy.execution.run_context(True)
+  File "/Applications/renpy-7.3.5-sdk/renpy/execution.py", line 908, in run_context
+    context.run()
+  File "game/script.rpy", line 87, in script
+    pause
+  File "game/script.rpy", line 87, in script
+    pause
+  File "/Applications/renpy-7.3.5-sdk/renpy/ast.py", line 1949, in execute
+    self.call("execute")
+  File "/Applications/renpy-7.3.5-sdk/renpy/ast.py", line 1937, in call
+    return renpy.statements.call(method, parsed, *args, **kwargs)
+  File "/Applications/renpy-7.3.5-sdk/renpy/statements.py", line 277, in call
+    return method(parsed, *args, **kwargs)
+  File "renpy/common/000statements.rpy", line 416, in execute_pause
+    renpy.pause()
+  File "/Applications/renpy-7.3.5-sdk/renpy/exports.py", line 1480, in pause
+    rv = renpy.ui.interact(mouse='pause', type='pause', roll_forward=roll_forward)
+  File "/Applications/renpy-7.3.5-sdk/renpy/ui.py", line 297, in interact
+    rv = renpy.game.interface.interact(roll_forward=roll_forward, **kwargs)
+  File "/Applications/renpy-7.3.5-sdk/renpy/display/core.py", line 2702, in interact
+    repeat, rv = self.interact_core(preloads=preloads, trans_pause=trans_pause, **kwargs)
+  File "/Applications/renpy-7.3.5-sdk/renpy/display/core.py", line 3518, in interact_core
+    rv = root_widget.event(ev, x, y, 0)
+  File "/Applications/renpy-7.3.5-sdk/renpy/display/layout.py", line 998, in event
+    rv = i.event(ev, x - xo, y - yo, cst)
+  File "/Applications/renpy-7.3.5-sdk/renpy/display/layout.py", line 998, in event
+    rv = i.event(ev, x - xo, y - yo, cst)
+  File "/Applications/renpy-7.3.5-sdk/renpy/display/layout.py", line 998, in event
+    rv = i.event(ev, x - xo, y - yo, cst)
+  File "/Applications/renpy-7.3.5-sdk/renpy/display/screen.py", line 714, in event
+    rv = self.child.event(ev, x, y, st)
+  File "/Applications/renpy-7.3.5-sdk/renpy/display/layout.py", line 998, in event
+    rv = i.event(ev, x - xo, y - yo, cst)
+  File "/Applications/renpy-7.3.5-sdk/renpy/display/behavior.py", line 962, in event
+    return handle_click(self.clicked)
+  File "/Applications/renpy-7.3.5-sdk/renpy/display/behavior.py", line 897, in handle_click
+    rv = run(action)
+  File "/Applications/renpy-7.3.5-sdk/renpy/display/behavior.py", line 313, in run
+    new_rv = run(i, *args, **kwargs)
+  File "/Applications/renpy-7.3.5-sdk/renpy/display/behavior.py", line 320, in run
+    return action(*args, **kwargs)
+  File "renpy/common/00action_control.rpy", line 126, in __call__
+    renpy.show_screen(self.screen, *self.args, **self.kwargs)
+  File "/Applications/renpy-7.3.5-sdk/renpy/display/screen.py", line 1107, in show_screen
+    raise Exception("Screen %s is not known.\n" % (name[0],))
+Exception: Screen notebook_screen is not known.
+
 
 Darwin-19.4.0-x86_64-i386-64bit
 Ren'Py 7.3.5.606
 Demo 1.0
-Mon May 25 09:20:19 2020
+Tue May 26 17:12:20 2020

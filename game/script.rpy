@@ -67,7 +67,7 @@ image word_effect2:
 
 label start:
     python:
-        player = Player("Derp", 8)
+        player = Player("Derp", 2)
         npc1 = NPC("Friendly", 80, image="images/character.jpg")
         officeKey = Item("officeKey", image="gui/key.jpg")
         inventory = Inventory()
@@ -86,14 +86,17 @@ label start:
 
     pause
 
-    guard "Where was it you studied?"
+    "You walk up to the house."
+    "There is a guard standing at the door, staring at you."
+
+    guard "What do you want?"
 
     $ timeout_label = "question2"
     menu:
-        "University of Moscow":
-            jump moscow
-        "Coleraine Tech":
-            jump tech
+        "I'm hear to see Dimirti":
+            jump dimirti
+        "Get out of my way":
+            jump outOfWay
         "Harvard":
             jump harvard
 

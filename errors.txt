@@ -2,9 +2,13 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 56: ATL statement contains two expressions in a row; is one of them a misspelled property? If not, separate them with pass.
-    style top_padding 20 
-                      ^
+File "game/script.rpy", line 89: expected statement.
+    ui.text("You walk up to the house.")
+                                        ^
+
+File "game/script.rpy", line 90: expected statement.
+    ui.text("There is a guard standing at the door, staring at you.")
+                                                                     ^
 
 Ren'Py Version: Ren'Py 7.3.5.606
-Sun May 24 19:22:58 2020
+Tue May 26 16:44:33 2020
