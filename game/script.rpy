@@ -91,7 +91,7 @@ label start:
     
     guard "Here, do as you see fit"
     
-    $ sshake = Shake((0.5, 1.0, 0.5, 1.0), 10.0, dist=15)
+    $ sshake = Shake((0.5, 1.0, 0.5, 1.0), 1.0, dist=15)
 
     $ timeout_label = "question2" 
     show character1 at right
@@ -110,19 +110,18 @@ label start:
 
     label tech:
         $ player.handleAnxious(-1)
-        guard "Oh yeah my brother got his Level 2 BTEC from there" with sshake
+        guard "Oh yeah my brother got his Level 2 BTEC from there" 
         jump question2
 
     label harvard:
         $ player.handleAnxious(+1)
-        guard "You...?"
+        guard "You...?" with sshake
         jump question2
 
     label question2:
         $ word_effect("time did", "size")
         $ word_effect2("get here", "i")
         guard "What {image=word_effect} you {image=word_effect2}?"
-
 
     #$ povname = renpy.input("What is your name?")
     #$ player.name = povname.strip()

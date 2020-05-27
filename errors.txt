@@ -2,13 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 98: menu statement expects a non-empty block.
-    menu:
-        ^
-
-File "game/script.rpy", line 100: Line is indented, but the preceding with statement statement does not expect a block. Please check this line's indentation.
-    "I'm hear to see Dimirti":
-    ^
+File "game/script.rpy", line 113: end of line expected.
+    guard "Oh yeah my brother got his Level 2 BTEC from there" ]
+                                                               ^
 
 Ren'Py Version: Ren'Py 7.3.5.606
-Tue May 26 21:20:31 2020
+Wed May 27 20:00:37 2020
